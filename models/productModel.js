@@ -14,7 +14,7 @@ const Clothing = class Clothing {
   // CREATE
   static create(req, res) {
     return db.execute(
-      'INSERT INTO product (pId, cId, pname, price, image, profile) VALUES (?, ?, ?, ?, ?, ?, ?)',
+      'INSERT INTO product (pId, cId, pname, price, image, profile, aId) VALUES (?, ?, ?, ?, ?, ?, ?)',
       [
         req.body.pId,
         req.body.cId,
@@ -29,6 +29,10 @@ const Clothing = class Clothing {
 
   // READ
  
+  static fetchHomepage() {
+    return db.execute('select * from product where cId = 2');
+  }
+
   static fetchProductsByCategory(cid) {
     return db.execute('SELECT * FROM product where cId = ?;', [cid]);
   }

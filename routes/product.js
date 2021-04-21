@@ -9,6 +9,11 @@ const productController = require('../controllers/productController');
 //   res.render('products', { title: 'Express' });
 // });
 
+
+router.post('/create', productController.createProduct);
+
+router.get('/', productController.getHomepage);
+
 router.get('/:product', productController.getProductsByCategory);
 router.get('/atr/:product', productController.getProductsByProfile);
 

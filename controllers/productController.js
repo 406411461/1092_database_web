@@ -1,6 +1,31 @@
 const Clothing = require('../models/productModel');
 
+exports.createProduct = async (req, res) => {
+  console.log('createProduct', req.body);
+  try {
+    await Clothing.create(req, res).then(([rows]) => {
+      res.redirect('/product');
+    });
+    // res.json(req.body);
+  } catch (err) {
+    console.log(err);
+  }
+};
 
+exports.getHomepage = async (req, res) => {
+  let data = {};
+  try {
+    await Clothing.fetchHomepage().then(([rows]) => {
+      // console.log('getDashboard', JSON.stringify(rows));
+      data.clothing = rows;
+      // res.json(rows);
+    });
+
+    res.render('product', { title: 'Homepage', data: data.clothing });
+  } catch (err) {
+    console.log(err);
+  }
+};
 
 exports.getProductsByCategory = async (req, res) => {
   let data = {};
@@ -14,6 +39,7 @@ exports.getProductsByCategory = async (req, res) => {
     else if (req.params.product === 'FORD') data.cid = 5;
     else if (req.params.product === 'LEXUS') data.cid = 6;
     else if (req.params.product === 'VW') data.cid = 7;
+    else if (req.params.product === 'TESLA') data.cid = 8;
 
     await Clothing.fetchProductsByCategory(data.cid).then(([rows]) => {
       data.products = rows;
