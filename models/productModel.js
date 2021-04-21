@@ -1,19 +1,20 @@
 const db = require('../utils/database');
 
 const Clothing = class Clothing {
-  constructor(pId, cId, pname, price, image, profile) {
+  constructor(pId, cId, pname, price, image, profile,aId) {
     this.pId = pId;
     this.cId = cId;
     this.pname = pname;
     this.price = price;
     this.image = image;
     this.profile = profile;
+    this.aId = aId;
   }
 
   // CREATE
   static create(req, res) {
     return db.execute(
-      'INSERT INTO product (pId, cId, pname, price, image, profile) VALUES (?, ?, ?, ?, ?, ?)',
+      'INSERT INTO product (pId, cId, pname, price, image, profile) VALUES (?, ?, ?, ?, ?, ?, ?)',
       [
         req.body.pId,
         req.body.cId,
@@ -21,6 +22,7 @@ const Clothing = class Clothing {
         req.body.price,
         req.body.image,
         req.body.profile,
+        req.body.aId,
       ]
     );
   }
@@ -29,6 +31,10 @@ const Clothing = class Clothing {
  
   static fetchProductsByCategory(cid) {
     return db.execute('SELECT * FROM product where cId = ?;', [cid]);
+  }
+
+  static fetchProductsByProfile(aId) {
+    return db.execute('SELECT * FROM product where aId = ? ;', [aId]);
   }
 };
 

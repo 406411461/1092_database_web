@@ -10,6 +10,8 @@ const productController = require('../controllers/productController');
 // });
 
 router.get('/:product', productController.getProductsByCategory);
+router.get('/atr/:product', productController.getProductsByProfile);
+
 //router.get('/shop_61/:product', crown2Controller.getProductsByCategory);
 
 
