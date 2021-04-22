@@ -40,6 +40,11 @@ const Clothing = class Clothing {
   static fetchProductsByProfile(aId) {
     return db.execute('SELECT * FROM product where aId = ? ;', [aId]);
   }
+
+  static fetchProductsByPId(pid) {
+    return db.execute('select * from product where pid = ?', [pid]);
+  }
+
 };
 
 
