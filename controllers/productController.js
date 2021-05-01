@@ -4,7 +4,7 @@ exports.createProduct = async (req, res) => {
   console.log('createProduct', req.body);
   try {
     await Clothing.create(req, res).then(([rows]) => {
-      res.redirect('/product');
+      res.redirect('/product/single/LM');
     });
     // res.json(req.body);
   } catch (err) {
