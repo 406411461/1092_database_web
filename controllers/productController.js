@@ -1,9 +1,9 @@
-const Clothing = require('../models/productModel');
+const Product = require('../models/productModel');
 
 exports.createProduct = async (req, res) => {
   console.log('createProduct', req.body);
   try {
-    await Clothing.create(req, res).then(([rows]) => {
+    await Product.create(req, res).then(([rows]) => {
       res.redirect('/product/single/LM');
     });
     // res.json(req.body);
@@ -15,7 +15,7 @@ exports.createProduct = async (req, res) => {
 exports.getHomepage = async (req, res) => {
   let data = {};
   try {
-    await Clothing.fetchHomepage().then(([rows]) => {
+    await Product.fetchHomepage().then(([rows]) => {
       // console.log('getDashboard', JSON.stringify(rows));
       data.clothing = rows;
       // res.json(rows);
@@ -41,7 +41,7 @@ exports.getProductsByCategory = async (req, res) => {
     else if (req.params.product === 'VW') data.cid = 7;
     else if (req.params.product === 'TESLA') data.cid = 8;
 
-    await Clothing.fetchProductsByCategory(data.cid).then(([rows]) => {
+    await Product.fetchProductsByCategory(data.cid).then(([rows]) => {
       data.products = rows;
       // res.json(data);
     });
@@ -67,7 +67,7 @@ exports.getProductsByProfile = async (req, res) => {
     else if (req.params.product === 'SPORT') data.aId = 5;
     else if (req.params.product === 'COMPACT') data.aId = 6;
 
-    await Clothing.fetchProductsByProfile(data.aId).then(([rows]) => {
+    await Product.fetchProductsByProfile(data.aId).then(([rows]) => {
       data.products = rows;
       // res.json(data);
     });
@@ -115,7 +115,7 @@ exports.getProductsByPId = async (req, res) => {
 
 
 
-    await Clothing.fetchProductsByPId(data.pid).then(([rows]) => {
+    await Product.fetchProductsByPId(data.pid).then(([rows]) => {
       data.products = rows;
       // res.json(data);
     });

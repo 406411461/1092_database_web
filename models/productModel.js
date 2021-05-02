@@ -1,6 +1,6 @@
 const db = require('../utils/database');
 
-const Clothing = class Clothing {
+const Product = class Product {
   constructor(pId, cId, pname, price, image, profile, aId, describ) {
     this.pId = pId;
     this.cId = cId;
@@ -54,4 +54,4 @@ const Clothing = class Clothing {
 
 // testFetchProductsByCategory();
 
-module.exports = Clothing;
+module.exports = Product;
