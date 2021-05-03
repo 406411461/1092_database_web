@@ -130,7 +130,9 @@ https://templatemo.com/tm-559-zay-shop
                     <% for(let i=0; i<data.length; i++) { %>
                       <tr>
                         <td>
-                            <img  src="<%= data[i].image %>" width: 400px, height: auto>
+                            <a href="/product/single/<%= data[i].pname %>">
+                                <img src="<%= data[i].image %>"  >
+                            </a>
                         </td>
                         <td>
                             <p style="text-align:center;"><%= data[i].pId %></p>
@@ -139,8 +141,8 @@ https://templatemo.com/tm-559-zay-shop
                         <td><p style="text-align:center;"><%= data[i].profile %></p></td>
                         <td><p style="text-align:center;"><%= data[i].describ %></p></td>
                         <td>
-                          <a href="/product/single/<%= data[i].pname %>" class="btn btn-secondary">
-                            <i class="fas fa-angle-double-right"></i> Details
+                          <a href="/cart/delete/?id=<%= data[i].pId %>" class="btn btn-secondary">
+                            <i class="fas fa-angle-double-right"></i> Delete
                           </a>
                         </td>
                       </tr>
