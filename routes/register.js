@@ -11,6 +11,12 @@ router.get('/', function(req, res, next) {
 router.get('/rr', function(req, res, next) {
   res.render('register');
 });
+router.get('/build', function(req, res, next) {
+  res.render('register_create');
+});
+router.get('/upload', function(req, res, next) {
+  res.render('register_update');
+});
 
 // router.post('/create', function (req, res) {
 //     //接收資料
