@@ -31,6 +31,10 @@ const Product = class Product {
 
   // READ
  
+  static fetchShoppage() {
+    return db.execute('select * FROM product ORDER BY RAND() LIMIT 30 ');
+  }
+
   static fetchHomepage() {
     return db.execute('select * from product where cId = 2');
   }
