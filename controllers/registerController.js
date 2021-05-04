@@ -44,7 +44,7 @@ exports.deleteMember = async (req, res) => {
   console.log('deleteMember', req.query.id);
   try {
     await Register.deleteByID(req.query.id).then(([rows]) => {
-      res.redirect('/users/posts');
+      res.redirect('/register/read');
     });
   } catch (err) {
     console.log(err);
