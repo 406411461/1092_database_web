@@ -1,29 +1,27 @@
 const db = require('../utils/database');
 
 const Cart = class Cart {
-  constructor(pId,mId) {
+  constructor(pId) {
     this.pId = pId;
-    this.mId = mId;
   }
 
-  static create(req, res) {
+  static create(pId) {
     return db.execute(
-      'INSERT INTO cart (pId, mId) VALUES (?, ?)',
+      'INSERT INTO cart (pId) VALUES (?)',
       [
-        req.body.pId,
-        req.body.mId,
+        pId,
       ]
     );
   }
 
   static fetchAll() {
     return db.execute(
-      'select p.pId,p.pname,p.profile,p.image,p.describ from cart,product as p,member where cart.mId = member.mId and cart.pId = p.pId and cart.mId = 666'
+      'SELECT p.pId,p.pname,p.image,p.profile,p.describ FROM cart,product as p  where cart.pId = p.pId'
     );
   }
   static fetchTotal() {
     return db.execute(
-      'select sum(p.price) as pId from cart,product as p,member where cart.mId = member.mId and cart.pId = p.pId and cart.mId = 666'
+      'select sum(p.price) as pId from cart as c,product as p where c.pId = p.pId'
     );
   }
 

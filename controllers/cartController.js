@@ -3,30 +3,31 @@ const Cart = require('../models/cartModel');
 // Create
 
 exports.createCart = async (req, res) => {
-  console.log('createCart', req.body);
+  let data = {};
+  data.pid = 0;
+  console.log('req.params.product', req.params.product);
   try {
-    await Cart.create(req, res).then(([rows]) => {
-      res.redirect('/product/single/LM');
+    data.pid = req.params.product;
+    await Cart.create(data.pid).then(([rows]) => {
+      res.redirect('/cart');
     });
+    // res.redirect('/cart');
     //  res.json(req.body);
   } catch (err) {
     console.log(err);
   }
 };
 
+
 // Read
 exports.getCart = async (req, res) => {
   let data = {};
   try {
     await Cart.fetchAll().then(([rows]) => {
-      // console.log('getDashboard', JSON.stringify(rows));
       data.c1 = rows;
-      // res.json(rows);
     });
     await Cart.fetchTotal().then(([rows]) => {
-      // console.log('getDashboard', JSON.stringify(rows));
       data.c2 = rows;
-      // res.json(rows);
     });
 
     res.render('cart', { title: 'Cart', data: data.c1 ,data2: data.c2});
