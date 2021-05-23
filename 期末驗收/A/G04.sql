@@ -58,6 +58,7 @@ CREATE TABLE `cart` (
 
 LOCK TABLES `cart` WRITE;
 /*!40000 ALTER TABLE `cart` DISABLE KEYS */;
+INSERT INTO `cart` VALUES (5),(7),(10);
 /*!40000 ALTER TABLE `cart` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -131,6 +132,7 @@ CREATE TABLE `member` (
 
 LOCK TABLES `member` WRITE;
 /*!40000 ALTER TABLE `member` DISABLE KEYS */;
+INSERT INTO `member` VALUES (1,'John','john@gmail.com','新北市三重區','0963457123'),(2,'Kevin','kevin@gmail.com','新北市蘆洲區','0958362145'),(3,'David','david@gmail.com','新北市新莊區','0965874411'),(4,'James','james@gmail.com','台北市大安區','0695847132'),(5,'Mark','mark@gmail.com','台北市松山區','0909654741'),(6,'Chris','chris@gmail.com','台中市西區','0963258741');
 /*!40000 ALTER TABLE `member` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -254,4 +256,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-05-22 18:28:56
+-- Dump completed on 2021-05-23 16:53:46
