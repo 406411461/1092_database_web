@@ -48,7 +48,6 @@ DROP TABLE IF EXISTS `cart`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `cart` (
   `pId` int NOT NULL,
-  `mId` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`pId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -59,7 +58,6 @@ CREATE TABLE `cart` (
 
 LOCK TABLES `cart` WRITE;
 /*!40000 ALTER TABLE `cart` DISABLE KEYS */;
-INSERT INTO `cart` VALUES (1,'69'),(2,'22'),(3,'69'),(4,'69'),(5,'71'),(6,'666'),(16,'666'),(17,'666'),(19,'666'),(23,'666');
 /*!40000 ALTER TABLE `cart` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -88,6 +86,29 @@ INSERT INTO `category` VALUES (1,'TOYOTA'),(2,'MAZDA'),(3,'HONDA'),(4,'NISSAN'),
 UNLOCK TABLES;
 
 --
+-- Table structure for table `favor`
+--
+
+DROP TABLE IF EXISTS `favor`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `favor` (
+  `pId` int NOT NULL,
+  PRIMARY KEY (`pId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `favor`
+--
+
+LOCK TABLES `favor` WRITE;
+/*!40000 ALTER TABLE `favor` DISABLE KEYS */;
+INSERT INTO `favor` VALUES (13),(14),(15);
+/*!40000 ALTER TABLE `favor` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `member`
 --
 
@@ -110,7 +131,6 @@ CREATE TABLE `member` (
 
 LOCK TABLES `member` WRITE;
 /*!40000 ALTER TABLE `member` DISABLE KEYS */;
-INSERT INTO `member` VALUES (22,'Kevin','Kevin777@gmail.com',NULL,'0905136578'),(43,'Posey','Posey596@gmail.com',NULL,'0965484123'),(69,'John','John0909@gmail.com',NULL,'0909568788'),(71,'Howard','Howard0613@gmail.com',NULL,'0932164587'),(666,'Lisa','lisa666@gmail.com',NULL,'0965485213');
 /*!40000 ALTER TABLE `member` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -234,4 +254,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-05-03 13:18:01
+-- Dump completed on 2021-05-22 18:28:56
