@@ -78,6 +78,9 @@ https://templatemo.com/tm-559-zay-shop
                         <li class="nav-item">
                             <a class="nav-link" href="/register.html">Register</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/favor">Favor</a>
+                        </li>
                     </ul>
                 </div>
                 <div class="navbar align-self-center d-flex">
@@ -96,7 +99,7 @@ https://templatemo.com/tm-559-zay-shop
                         <i class="fa fa-fw fa-cart-arrow-down text-dark mr-1"></i>
                         <span class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark">7</span>
                     </a>
-                    <a class="nav-icon position-relative text-decoration-none" href="#">
+                    <a class="nav-icon position-relative text-decoration-none" href="/register/read">
                         <i class="fa fa-fw fa-user text-dark mr-3"></i>
                         <span class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark">+99</span>
                     </a>
@@ -135,21 +138,20 @@ https://templatemo.com/tm-559-zay-shop
             <div class="col-lg-9">
                 
                 <div class="row">
-                    
+                    <% for(let i=0; i<data.length; i++) { %>
                     <div class="col-md-4">
                         <div class="card mb-4 product-wap rounded-0">
                             <div class="card rounded-0">
-                                <img class="card-img rounded-0 img-fluid" src="assets/img/sentra.png">
+                                <img class="card-img rounded-0 img-fluid" src="<%= data[i].image %>">
                                 <div class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
                                     <ul class="list-unstyled">
-                                        <li><a class="btn btn-success text-white" href="/product/single/SENTRA"><i class="far fa-heart"></i></a></li>
-                                        <li><a class="btn btn-success text-white mt-2" href="/product/single/SENTRA"><i class="far fa-eye"></i></a></li>
-                                        <li><a class="btn btn-success text-white mt-2" href="/product/single/SENTRA"><i class="fas fa-cart-plus"></i></a></li>
+                                        <li><a class="btn btn-success text-white mt-2" href="/product/single/<%=data[i].pId%>"><i class="far fa-eye"></i></a></li>
+                                        <li><a class="btn btn-success text-white mt-2" href="/cart/create/<%= data[i].pId %>"><i class="fas fa-cart-plus"></i></a></li>
                                     </ul>
                                 </div>
                             </div>
                             <div class="card-body">
-                                <a href="/product/single/SENTRA" class="h3 text-decoration-none">All new sentra</a>
+                                <a href="/product/single/<%=data[i].pId%>" class="h3 text-decoration-none"><%= data[i].pname %></a>
                                 <ul class="w-100 list-unstyled d-flex justify-content-between mb-0">
                                     <li>M/L/X/XL</li>
                                     <li class="pt-2">
@@ -173,6 +175,7 @@ https://templatemo.com/tm-559-zay-shop
                             </div>
                         </div>
                     </div>
+                    <% } %>
                 </div>
                 
             </div>
